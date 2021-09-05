@@ -44,7 +44,3 @@ RUN chmod g+w /opt/spark/work-dir
 RUN chmod a+x /opt/decom.sh
 
 ENTRYPOINT [ "/opt/entrypoint.sh" ]
-
-# Specify the User that the actual main process will run as
-ARG spark_uid=185
-USER ${spark_uid}
