@@ -1,20 +1,34 @@
 MAKEFLAGS += --warn-undefined-variables
 SHELL = /bin/bash -o pipefail
 .DEFAULT_GOAL := help
-.PHONY: help docker-build
+.PHONY: help build describe run
+
+python_version ?= 3.8
+debian_release ?= buster
+spark_version ?= 3.1.2
+hadoop_version ?= 3.2
+jdk_version ?= 11
+repo = tekumara/spark
+tag = $(spark_version)-hadoop$(hadoop_version)-java$(jdk_version)-python$(python_version)-$(debian_release)
+
+## build the docker image
+build:
+	docker build . \
+		--build-arg python_version=$(python_version)	\
+		--build-arg debian_release=$(debian_release)	\
+		--build-arg spark_version=$(spark_version)		\
+		--build-arg hadoop_version=$(hadoop_version)	\
+		--build-arg jdk_version=$(jdk_version)			\
+		-t $(repo):$(tag)
+
+## describe image
+describe:
+	docker images $(repo):$(tag)
+
+## run docker image
+run:
+	docker run --rm -it $(repo):$(tag)
 
 ## display help message
 help:
 	@awk '/^##.*$$/,/^[~\/\.0-9a-zA-Z_-]+:/' $(MAKEFILE_LIST) | awk '!(NR%2){print $$0p}{p=$$0}' | awk 'BEGIN {FS = ":.*?##"}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}' | sort
-
-## build the docker image
-build:
-	docker build . -t pyspark:3.1.2-hadoop3.2-java11-python3.8-buster
-
-## describe image
-describe:
-	docker images pyspark:3.1.2-hadoop3.2-java11-python3.8-buster
-
-## run latest docker image
-run:
-	docker run --rm -it pyspark:latest

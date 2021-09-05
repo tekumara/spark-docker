@@ -1,20 +1,22 @@
-ARG dist=buster
-FROM python:3.8-slim-${dist} as builder
+ARG python_version
+ARG debian_release
+FROM python:${python_version}-slim-${debian_release} as builder
 
 RUN apt-get update && \
 	DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     curl
 
-ARG spark_version=3.1.2
-ARG hadoop_version=3.2
+ARG spark_version
+ARG hadoop_version
 RUN curl -fsSLo spark-dist.tar.gz https://archive.apache.org/dist/spark/spark-${spark_version}/spark-${spark_version}-bin-hadoop${hadoop_version}.tgz
 RUN tar -xvf spark-dist.tar.gz --strip-components 1
 
-FROM python:3.8-slim-${dist}
+FROM python:${python_version}-slim-${debian_release}
 
+ARG jdk_version
 RUN apt-get update && \
 	DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-    openjdk-11-jre-headless tini
+    openjdk-${jdk_version}-jre-headless tini
 
 RUN mkdir -p /opt/spark && \
     mkdir -p /opt/spark/work-dir && \
