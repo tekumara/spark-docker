@@ -37,7 +37,9 @@ COPY --from=builder data /opt/spark/data
 COPY --from=builder python/pyspark /opt/spark/python/pyspark
 COPY --from=builder python/lib /opt/spark/python/lib
 
+# set env vars needed by entrypoint.sh
 ENV SPARK_HOME /opt/spark
+ENV JAVA_HOME /usr/lib/jvm/java-${jdk_version}-openjdk-amd64
 
 WORKDIR /opt/spark/work-dir
 RUN chmod g+w /opt/spark/work-dir

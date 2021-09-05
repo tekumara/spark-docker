@@ -3,7 +3,7 @@
 [![Docker Image Version (latest semver)](https://img.shields.io/docker/v/tekumara/spark?style=plastic)
 ![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/tekumara/spark?style=plastic)](https://hub.docker.com/r/tekumara/spark)
 
-Docker images for Spark with Python bindings. Mirrors the [Spark kubernetes docker image](https://spark.apache.org/docs/latest/running-on-kubernetes.html#docker-images), but based on the [official Python docker images](https://github.com/docker-library/python).
+Docker images for Spark on Kubernetes based on the [official Python docker images](https://github.com/docker-library/python). Closely follows the [Spark Kubernetes docker image](https://spark.apache.org/docs/latest/running-on-kubernetes.html#docker-images) with Python bindings.
 
 ## Why?
 
