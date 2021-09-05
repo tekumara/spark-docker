@@ -4,7 +4,7 @@ SHELL = /bin/bash -o pipefail
 .PHONY: help build describe run
 
 python_version ?= 3.8
-debian_release ?= buster
+debian_release ?= bullseye
 spark_version ?= 3.1.2
 hadoop_version ?= 3.2
 jdk_version ?= 11
