@@ -29,6 +29,10 @@ describe:
 run:
 	docker run --rm -it $(repo):$(tag)
 
+## push images to dockerhub
+push:
+	docker push --all-tags $(repo)
+
 ## display help message
 help:
 	@awk '/^##.*$$/,/^[~\/\.0-9a-zA-Z_-]+:/' $(MAKEFILE_LIST) | awk '!(NR%2){print $$0p}{p=$$0}' | awk 'BEGIN {FS = ":.*?##"}; {printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}' | sort

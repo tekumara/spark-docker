@@ -1,3 +1,25 @@
-# spark-docker
+# tekumara spark docker images 🍠✨
 
-Docker image for Spark with Python bindings. Mirrors the [Spark kubernetes docker image](https://spark.apache.org/docs/latest/running-on-kubernetes.html#docker-images), but based on the [official python docker image](https://github.com/docker-library/python).
+Docker images for Spark with Python bindings. Mirrors the [Spark kubernetes docker image](https://spark.apache.org/docs/latest/running-on-kubernetes.html#docker-images), but based on the [official Python docker images](https://github.com/docker-library/python).
+
+## Why?
+
+Smaller than other similar images.
+
+## Usage
+
+Images are available from [docker hub](https://hub.docker.com/repository/docker/tekumara/spark/).
+
+eg:
+
+```
+docker pull tekumara/spark:3.1.2-hadoop3.2-java11-python3.8-bullseye 
+```
+
+## Build
+
+Build spark 3.1.2
+
+```
+spark_version=3.1.2 make build
+```
