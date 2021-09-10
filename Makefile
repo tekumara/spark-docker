@@ -25,9 +25,9 @@ build:
 describe:
 	docker images $(repo):$(tag)
 
-## run docker image
-run:
-	docker run --rm -it $(repo):$(tag)
+## test docker image in client mode
+test:
+	docker run --rm -it $(repo):$(tag) driver /opt/spark/examples/src/main/python/pi.py
 
 ## push images to dockerhub
 push:
