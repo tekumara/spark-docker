@@ -1,7 +1,7 @@
 MAKEFLAGS += --warn-undefined-variables
 SHELL = /bin/bash -o pipefail
 .DEFAULT_GOAL := help
-.PHONY: help build describe run
+.PHONY: help build describe test push
 
 python_version ?= 3.8
 debian_release ?= bullseye
