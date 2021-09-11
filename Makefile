@@ -27,7 +27,7 @@ describe:
 
 ## run docker image
 run:
-	docker run --rm -it $(repo):$(tag)
+	docker run --rm $(repo):$(tag)
 
 ## push images to dockerhub
 push:
