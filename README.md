@@ -1,4 +1,4 @@
-# tekumara spark docker images 🍠✨
+# 🍠 tekumara spark docker images ✨
 
 [![Docker Image Version (latest semver)](https://img.shields.io/docker/v/tekumara/spark?style=plastic)
 ![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/tekumara/spark?style=plastic)](https://hub.docker.com/r/tekumara/spark)

@@ -2,8 +2,8 @@ ARG python_version
 ARG debian_release
 FROM python:${python_version}-slim-${debian_release} as builder
 
-RUN apt-get update && \
-	DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get upgrade -y && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     curl
 
 ARG spark_version
@@ -14,8 +14,8 @@ RUN tar -xvf spark-dist.tar.gz --strip-components 1
 FROM python:${python_version}-slim-${debian_release}
 
 ARG jdk_version
-RUN apt-get update && \
-	DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get upgrade -y && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     openjdk-${jdk_version}-jre-headless tini
 
 RUN mkdir -p /opt/spark && \
