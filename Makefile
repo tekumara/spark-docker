@@ -13,7 +13,7 @@ tag = $(spark_version)-hadoop$(hadoop_version)-java$(jdk_version)-python$(python
 
 ## build the docker image
 build:
-	docker build . \
+	docker buildx build . \
 		--build-arg python_version=$(python_version)	\
 		--build-arg debian_release=$(debian_release)	\
 		--build-arg spark_version=$(spark_version)		\
