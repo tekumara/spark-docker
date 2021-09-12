@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      
+
       - name: Build image
         run: make build
 
@@ -22,7 +22,8 @@ jobs:
 
       - name: Log into Dockerhub
         if: github.event_name != 'pull_request'
-        uses: docker/login-action@v1.10.0
+        # docker/login-action@v1.10.0
+        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
         with:
           username: tekumara
           password: ${{ secrets.DOCKERHUB_TOKEN }}
