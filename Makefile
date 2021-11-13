@@ -5,7 +5,7 @@ SHELL = /bin/bash -o pipefail
 
 python_version ?= 3.8
 debian_release ?= bullseye
-spark_version ?= 3.1.2
+spark_version ?= 3.2.0
 hadoop_version ?= 3.2
 jdk_version ?= 11
 repo = tekumara/spark
