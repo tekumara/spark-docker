@@ -3,9 +3,9 @@ SHELL = /bin/bash -o pipefail
 .DEFAULT_GOAL := help
 .PHONY: help build describe test push
 
-python_version ?= 3.8
+python_version ?= 3.9
 debian_release ?= bullseye
-spark_version ?= 3.2.0
+spark_version ?= 3.2.1
 hadoop_version ?= 3.2
 jdk_version ?= 11
 repo = tekumara/spark

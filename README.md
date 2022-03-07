@@ -15,13 +15,13 @@ Smaller than other similar images.
 Images are available from [docker hub](https://hub.docker.com/repository/docker/tekumara/spark/), eg:
 
 ```
-docker pull tekumara/spark:3.1.2-hadoop3.2-java11-python3.8-bullseye
+docker pull tekumara/spark:3.2.1-hadoop3.2-java11-python3.9-bullseye
 ```
 
 ## Build
 
-Build spark 3.1.2
+Build spark 3.2.1
 
 ```
-spark_version=3.1.2 make build
+spark_version=3.2.1 make build
 ```
